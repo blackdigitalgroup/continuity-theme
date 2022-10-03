@@ -11,7 +11,7 @@
 
 <header id="masthead">
 
-<nav class="px-2 bg-primary border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+<nav class="px-2 bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
   <div class="container flex flex-wrap justify-between items-center mx-auto py-3">
         <!-- Check functions.php for the custom classes and other attributes -->
         <?php the_custom_logo(); ?>
@@ -24,7 +24,7 @@
                     $args = [
                         'theme_location' => 'primary',
                         'menu' => 'primary',
-                        'menu_class' => 'flex nav-wrapper text-white uppercase main-nav',
+                        'menu_class' => 'flex nav-wrapper text-white uppercase',
                     ];
 
                     wp_nav_menu($args);

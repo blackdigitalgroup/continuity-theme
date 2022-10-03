@@ -1,8 +1,9 @@
-function dropdownHandler(element) {
+ window.dropdownHandler = function(element) {
     let single = element.getElementsByTagName("ul")[0];
     single.classList.toggle("hidden");
 }
-function MenuHandler(el, val) {
+
+window.MenuHandler = function(el, val) {
     let MainList = el.parentElement.parentElement.getElementsByTagName("ul")[0];
     let closeIcon = el.parentElement.parentElement.getElementsByClassName("close-m-menu")[0];
     let showIcon = el.parentElement.parentElement.getElementsByClassName("show-m-menu")[0];
@@ -16,7 +17,7 @@ function MenuHandler(el, val) {
         el.classList.add("hidden");
     }
 }
-function searchHandler(element) {
+window.searchHandler = function(element) {
     let Input = element.parentElement.getElementsByTagName("input")[0];
     Input.classList.toggle("w-0");
 }
@@ -24,7 +25,7 @@ function searchHandler(element) {
 let sideBar = document.getElementById("mobile-nav");
 let menu = document.getElementById("menu");
 let cross = document.getElementById("cross");
-const sidebarHandler = (check) => {
+window.sidebarHandler = (check) => {
     if (check) {
         sideBar.style.transform = "translateX(0px)";
         menu.classList.add("hidden");

@@ -12,17 +12,32 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header>
 		<?php
-		if ( ! is_front_page() ) {
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		} else {
-			the_title( '<h2 class="entry-title">', '</h2>' );
-		}
+
+
+		if(is_page_template('page-templates/full-width-page-template.php' )) {
+
+        } else {
+            if ( !is_front_page() && !is_page_template('page-templates/full-width-page-template.php' ) ) {
+                ?>
+                <div class="internal-hero-row relative">
+                    <div class="container mx-auto flex">
+                        <?php
+                        continuity_theme_post_thumbnail();
+                        the_title( '<h1 class="entry-title uppercase font-heading absolute top-1/2 -translate-y-1/2">', '</h1>' );
+                        ?>
+
+                    </div>
+                </div>
+                <?php 
+                
+            }
+        }
+
+
 		?>
 	</header>
 
-	<?php continuity_theme_post_thumbnail(); ?>
-
-	<div class="entry-content">
+	<div class="mx-auto entry-content !container">
 		<?php
 		the_content();
 

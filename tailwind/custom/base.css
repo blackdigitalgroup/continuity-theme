@@ -11,6 +11,6 @@
  * `theme.json` file and is applied both to the frontend and in the block
  * editor.
 */
-body {
-	@apply bg-background font-sans text-foreground;
-}
+/* body {
+	@apply font-sans bg-background text-foreground;
+} */

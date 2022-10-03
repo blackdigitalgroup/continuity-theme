@@ -101,6 +101,20 @@ if ( ! function_exists( 'continuity_theme_setup' ) ) :
 			)
 		);
 
+        // changes the classes for the logo output
+        add_filter( 'get_custom_logo', 'add_custom_logo_url' );
+        function add_custom_logo_url() {
+
+        $custom_logo_id = get_theme_mod( 'custom_logo' );
+        $html = sprintf( '<a href="%1$s" class="custom-logo-link h-auto w-40" rel="home" itemprop="url">%2$s</a>',
+            esc_url( '/' ),
+            wp_get_attachment_image( $custom_logo_id, 'full', false, array(
+                'class'    => 'custom-logo',
+                    ) )
+                );
+            return $html;   
+        } 
+
 		/**
 		 * Add responsive embeds and block editor styles.
 		 */
@@ -147,13 +161,18 @@ add_action( 'widgets_init', 'continuity_theme_widgets_init' );
 /**
  * Enqueue scripts and styles.
  */
+
+// Register child stylesheet
+wp_register_style( 'styles-child', get_template_directory_uri() . '/css/styles-child.css', array(), CONTINUITY_THEME_VERSION );
+
 function continuity_theme_scripts() {
-	wp_enqueue_style( 'continuity-theme-style', get_stylesheet_uri(), array(), CONTINUITY_THEME_VERSION );
+	wp_enqueue_style( 'continuity-theme-style', get_stylesheet_uri(), array('styles-child'), CONTINUITY_THEME_VERSION );
 	wp_enqueue_script( 'continuity-theme-script', get_template_directory_uri() . '/js/script.min.js', array(), CONTINUITY_THEME_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+    wp_enqueue_style( 'styles-child' );
 }
 add_action( 'wp_enqueue_scripts', 'continuity_theme_scripts' );
 

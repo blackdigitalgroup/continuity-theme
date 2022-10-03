@@ -2,6 +2,7 @@
 const includePreflight = ( 'editor' === process.env._TW_TARGET ) ? false : true;
 
 module.exports = {
+    important: true,
 	presets: [
 		// Manage Tailwind Typography's configuration in a separate file.
 		require( './tailwind-typography.config.js' ),
@@ -16,7 +17,21 @@ module.exports = {
 		extend: {
 
 		},
+        colors: {
+            primary: '#101827'
+        },
+        fontFamily: {
+            // Add font family script in the ./theme/header.php
+            body: ["Poppins", "sans-serif"],
+            heading: ["Raleway", "sans-serif"]
+        }
 	},
+    safelist: [
+        {
+            pattern: /m(t|r|b|l|x|y)-(0|1|2|3|4|5|6|7|8|9)/,
+            pattern: /p(t|r|b|l|x|y)-(0|1|2|3|4|5|6|7|8|9)/,
+        }
+    ],
 	corePlugins: {
 		// Disable Preflight base styles in CSS targeting the editor.
 		preflight: includePreflight,

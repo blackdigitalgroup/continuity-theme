@@ -15,7 +15,12 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-    <script src="/javascript/test.js"></script>
+    
+    <!-- Load fonts here -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+
 	<?php wp_head(); ?>
 </head>
 
@@ -23,7 +28,7 @@
 
 <?php wp_body_open(); ?>
 
-<div id="page" class="mb-9">
-	<a href="#primary"><?php esc_html_e( 'Skip to content', 'continuity-theme' ); ?></a>
+<div id="page" class="">
+	<a href="#primary" class="screen-reader-text"><?php esc_html_e( 'Skip to content', 'continuity-theme' ); ?></a>
 
-	<?php get_template_part( 'template-parts/layout/header', 'test' ); ?>
+	<?php get_template_part( 'template-parts/layout/header', 'content' ); ?>
